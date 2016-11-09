@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html>
+<head lang="de">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>ComponentDoc</title>
+    <!--<script src="https://use.fontawesome.com/5afaea9bc6.js"></script>-->
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>-->
+    <style type="text/css">
+        * {
+            outline: 0;
+            -ms-box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+        }
+
+        html {
+            height: 100%;
+            font-size: 62.5%;
+            -webkit-tap-highlight-color: transparent;
+            font-family: sans-serif;
+            -ms-text-size-adjust: 100%;
+            -webkit-text-size-adjust: 100%;
+        }
+
+        body {
+            cursor: default;
+            font-weight: 300;
+            font-family: "Open sans", Helvetica, Arial, sans-serif !important;
+            height: 100%;
+            width: 100%;
+            min-width: 1024px;
+            white-space: nowrap;
+            overflow: auto;
+            -ms-overflow-style: scrollbar;
+            margin: 0;
+            color: #444444;
+        }
+
+        .docuImpressum {
+            height: 100%;
+            width: 100%;
+        }
+
+        .docuFooter {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            min-width: 1024px;
+            border-top: 1px solid #999;
+            text-align: center;
+            background-color: #ccc;
+            z-index: 100;
+        }
+
+        /*.docuFooter .docuFooterLogo {
+            height: 42px;
+            background: url(/assets/bgetem_footer.jpg) no-repeat 60% 0;
+        }*/
+
+        ul, ol {
+            margin-top: 0;
+            margin-bottom: 5px;
+        }
+
+        b, strong {
+            font-weight: 700;
+        }
+
+        .docuContent, .docuDetail, .docuTargets {
+            font-size: 0;
+        }
+
+        .docuContent .docuContentHeader {
+            font-size: 14px;
+            font-weight: bold;
+            height: 30px;
+            line-height: 30px;
+            padding-left: 5px;
+            color: #cccccc;
+            background: #777777;
+        }
+
+        .docuContent .docuContentEntry {
+            border-left: 1px solid #777777;
+            border-right: 1px solid #777777;
+            border-bottom: 1px solid #777777;
+            padding: 3px 5px 3px 5px;
+            font-size: 12px;
+        }
+
+        .docuDetail .docuDetailEntry {
+            font-size: 0;
+            display: flex;
+        }
+
+        .docuDetail .docuDetailEntry .docuDetailLabel {
+            font-size: 12px;
+            width: 20%;
+            font-weight: bold;
+        }
+
+        .docuDetail .docuDetailEntry .docuDetailContent {
+            font-size: 12px;
+            width: 80%;
+        }
+
+        .docuTargets .docuTargetsRow {
+            font-size: 0;
+            display: flex;
+        }
+
+        .docuTargets .docuTargetsRow .docuTargetsCol {
+            border-bottom: 1px solid #2068b0;
+            border-left: 1px solid #2068b0;
+            padding: 3px 5px 3px 5px;
+        }
+
+        .docuTargets .docuTargetsRow .docuTargetsCol:last-child {
+            border-right: 1px solid #2068b0;
+        }
+
+        .docuTargets .docuTargetsHeader {
+            background: #2068b0;
+            color: #adcef0;
+            height: 22px;
+            font-weight: bold;
+        }
+
+        .docuTargets .docuTargetsRow .docuTargetsComp {
+            font-size: 12px;
+            width: 40%;
+        }
+
+        .docuTargets .docuTargetsRow .docuTargetsName {
+            font-size: 12px;
+            width: 60%;
+        }
+
+        .docuIcon {
+            margin-right: 6px;
+        }
+
+        /*
+        *  COMMON
+        */
+        div.spec {
+            white-space: pre-wrap;
+            width: 100%;
+        }
+
+        div.head1 {
+            color: #ffffff;
+            position: absolute;
+            top: 8px;
+            left: 25px;
+            font-size: 12pt;
+            font-weight: bold;
+            width: 700px;
+            height: 20px;
+        }
+
+        div.head2 {
+            color: #ffffff;
+            position: absolute;
+            top: 11px;
+            right: 25px;
+            font-size: 9pt;
+            padding-left: 8px;
+            margin-left: 6px;
+            height: 20px;
+            width: 100px;
+        }
+
+        div.spec h1 {
+            font-size: 18px;
+            font-weight: bold;
+            padding-bottom: 12px;
+            padding-top: 8px;
+            background: #9a6f1c;
+            color: #e8c581;
+            padding-left: 5px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+        }
+
+        div.spec h2 {
+            color: #444444;
+            margin-bottom: 4px;
+            font-size: 16px;
+        }
+
+        div.spec h3 {
+            color: #ffffff;
+            background: #14426f;
+            margin-bottom: 4px;
+            font-size: 16px;
+            line-height: 36px;
+            height: 36px;
+            padding-left: 4px;
+        }
+
+        div.spec h4 {
+            color: #14426f !important;
+            padding-top: 10px;
+            padding-bottom: 0;
+            margin-bottom: 4px;
+            font-size: 14px;
+            border-top: 1px solid #14426f;
+        }
+
+        div.spec h4:first-child {
+            border-top: none;
+        }
+
+        a, a:hover, a:visited {
+            color: #444444;
+            cursor: pointer;
+        }
+
+        div.spec img {
+            max-width: 100%;
+            display: block;
+            margin-right: auto;
+        }
+
+        div.spec > ul {
+        }
+
+        div.spec > ul > li {
+            list-style-type: disc;
+        }
+
+        div > ol {
+            color: #444444 !important;
+            list-style-type: none;
+            padding: 0 0 0 10px !important;
+            white-space: normal;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        /*
+         *  HTML
+         */
+        @media screen {
+            body {
+                background-color: #777777;
+                font-family: "Arial", sans-serif;
+                font-size: 10pt;
+                overflow: hidden;
+            }
+
+            div.frontpage, div.rearpage {
+                display: none;
+            }
+
+            div.page {
+                -webkit-box-shadow: 0 0 8px 2px rgba(0, 0, 0, 0.5);
+                box-shadow: 0 0 8px 2px rgba(0, 0, 0, 0.5);
+                width: 970px;
+                position: absolute;
+                left: 20px;
+                top: 0;
+                height: 100%;
+            }
+
+            div.head {
+                position: fixed;
+                z-index: 100;
+                left: 20px;
+                top: 0;
+                width: 970px;
+                height: 36px;
+                background-color: #444444;
+            }
+
+            div.head1:after {
+                content: "ComponentDoc - Komponenten Documentation";
+            }
+
+            div.docuDetails {
+                margin-top: -50px;
+            }
+
+            div.spec h1 {
+                margin: -20px 0 5px 0;
+            }
+
+            div.spec h2 {
+                margin: 0 0 -20px 0;
+            }
+
+            div.spec h4 {
+                margin: 0 0 -20px 0;
+            }
+
+            div.spec {
+                background-color: #ffffff;
+                padding: 0 30px 0 270px;
+                position: absolute;
+                margin-top: 36px;
+                overflow-x: hidden;
+                overflow-y: auto;
+                height: calc(100% - 79px);
+            }
+
+            div > ol {
+                position: fixed;
+                width: 250px;
+                left: 20px;
+                top: 36px;
+                height: calc(100% - 79px);
+                overflow-x: hidden;
+                overflow-y: auto;
+            }
+
+            div.spec > ol > li {
+                padding: 5px 0 5px 5px;
+            }
+
+            div.spec > ol > li a {
+                color: #9a6f1c;
+            }
+
+            div.spec > ol > li.docuSelected {
+                background: #9a6f1c;
+                color: #e8c581;
+            }
+
+            div.spec > ol > li.docuSelected a {
+                color: #e8c581;
+            }
+
+            p {
+                -webkit-margin-before: -5px;
+                -webkit-margin-after: 0;
+                margin: -5px 0 0 0;
+            }
+
+            div.docuFooter {
+                left: 20px;
+                bottom: 0;
+                width: 970px;
+                min-width: 970px;
+            }
+
+            div.docuFooter .docuFooterLogo {
+                background-position: 20px 0;
+            }
+
+            div.docuPrintHeader,
+            div.docuPrintFooter {
+                display: none;
+            }
+
+        }
+
+        /*
+         *  PDF
+         */
+        @media print {
+            @page {
+                size: A4;
+                margin-left: 2.00cm;
+                margin-right: 1.50cm;
+                margin-top: 3.25cm;
+                margin-bottom: 2.00cm;
+                padding-top: 0.50cm;
+                padding-bottom: 0.00cm;
+                font-family: "Arial", sans-serif;
+                @top-center {
+                    content: flow(header);
+                    border-bottom: 1px solid #555;
+                }
+
+                @bottom-center {
+                    content: flow(footer);
+                    border-top: 1px solid #555;
+                }
+
+            }
+
+            @page frontpage {
+                margin-left: 0cm;
+                margin-right: 0cm;
+                margin-top: 0cm;
+                margin-bottom: 0cm;
+                padding-top: 0cm;
+                padding-bottom: 0cm;
+            }
+
+            @page rearpage {
+                margin-left: 0cm;
+                margin-right: 0cm;
+                margin-top: 0cm;
+                margin-bottom: 0cm;
+                padding-top: 0cm;
+                padding-bottom: 0cm;
+            }
+
+            body {
+                margin: 0;
+                padding: 0;
+                font-family: "Arial", sans-serif;
+                font-size: 9pt;
+                position: relative;
+            }
+
+            .docuDetail .docuDetailEntry, .docuTargets .docuTargetsRow {
+                display: block;
+            }
+
+            .docuDetail .docuDetailEntry .docuDetailLabel, .docuDetail .docuDetailEntry .docuDetailContent,
+            .docuTargets .docuTargetsRow .docuTargetsComp, .docuTargets .docuTargetsRow .docuTargetsName {
+                float: left;
+            }
+
+            .break {
+                page-break-before: always;
+            }
+
+            div.frontpage, div.rearpage {
+                width: 21cm !important;
+                height: 29.7cm !important;
+            }
+
+            div.frontpage .frontline1 {
+                position: absolute;
+                color: white !important;
+                font-size: 32px;
+                font-weight: bold;
+                left: 1.5cm;
+                top: 22.5cm;
+                white-space: normal;
+                width: 18cm;
+                line-height: 36px;
+            }
+
+            div.frontpage .frontline2 {
+                position: absolute;
+                color: white !important;
+                font-size: 40px;
+                font-weight: bold;
+                left: 1.5cm;
+                top: 24.5cm;
+            }
+
+            div.frontpage .frontline3 {
+                position: absolute;
+                color: white !important;
+                font-size: 20px;
+                left: 1.5cm;
+                top: 26.5cm;
+            }
+
+            div.rearpage .rearline1 {
+                position: absolute;
+                color: black !important;
+                font-size: 14px;
+                left: 1.5cm;
+                top: 2cm;
+                white-space: normal;
+                width: 18cm;
+                line-height: 20px;
+            }
+
+            div.rearpage .rearline2 {
+                position: absolute;
+                color: white !important;
+                font-size: 14px;
+                left: 1.5cm;
+                top: 4cm;
+                white-space: normal;
+                width: 18cm;
+                line-height: 20px;
+            }
+
+            div.frontpage {
+                background: url('./img/01_ET_Frontpage.png') no-repeat 0 0 !important;
+                background-size: contain !important;
+                page: frontpage;
+            }
+
+            div.rearpage {
+                background: url('./img/01_ET_Rearpage.png') no-repeat 0 0 !important;
+                background-size: contain !important;
+                page: rearpage;
+            }
+
+            h1 {
+                prince-bookmark-level: 1;
+            }
+
+            h2 {
+                prince-bookmark-level: 2;
+            }
+
+            h3 {
+                prince-bookmark-level: 3;
+            }
+
+            div.head {
+                display: none;
+            }
+
+            div > ol a[href]::after {
+                color: black !important;
+                content: leader(".") target-counter(attr(href), page);
+            }
+
+            div.spec > ol a,
+            div.spec > ol strong {
+                color: #444444 !important
+            }
+
+            div.spec > ol,
+            div.spec > ol ul {
+                margin-left: 1cm;
+            }
+
+            div.spec > ol li {
+                list-style-type: none;
+            }
+
+            div.spec h1 {
+                margin: 0 0 -10px 0;
+            }
+
+            div.spec h2 {
+                margin: 0 0 -10px 0;
+            }
+
+            div.spec h3 {
+                margin: 0 0 -10px 0;
+            }
+
+            div.spec h4 {
+                margin: 0 0 -10px 0;
+            }
+
+            div.docuFooter {
+                display: none;
+            }
+
+            div.docuPrintHeader {
+                flow: static(header);
+                font-size: 9pt;
+            }
+
+            div.docuPrintHeader .docuLeft {
+                width: 3.5cm;
+                text-align: left;
+                position: absolute;
+                left: 0;
+                top: -2.5cm;
+            }
+
+            div.docuPrintHeader .docuCenter {
+                width: 9.5cm;
+                text-align: center;
+                white-space: normal;
+                position: absolute;
+                left: 3.5cm;
+                top: -2.5cm;
+            }
+
+            div.docuPrintHeader .docuRight {
+                width: 4.5cm;
+                height: 1.5cm;
+                text-align: right;
+                content: "";
+                /*background: url('../../assets/logo_bgetem_print.png') no-repeat 0 0 !important;*/
+                background-size: contain !important;
+                position: absolute;
+                right: 0;
+                top: -2.5cm;
+            }
+
+            div.docuPrintFooter {
+                flow: static(footer);
+                font-size: 9pt;
+            }
+
+            div.docuPrintFooter .docuLeft {
+                width: 5.0cm;
+                text-align: left;
+                position: absolute;
+                left: 0;
+            }
+
+            div.docuPrintFooter .docuCenter {
+                width: 9cm;
+                text-align: center;
+                white-space: normal;
+                position: absolute;
+                left: 3.5cm;
+            }
+
+            div.docuPrintFooter .docuRight {
+                width: 3.5cm;
+                text-align: right;
+                content: counter(page);
+                position: absolute;
+                right: 0;
+            }
+
+            div.page {
+                width: 17cm;
+                overflow: hidden;
+            }
+
+        }
+
+    </style>
+</head>
+<body>
+<div class="page">
+    <!-- Footer must be on top of the page since it is taken out of flow from princeXML and then inserted into every page footer -->
+    <div class="docuPrintHeader">
+        <div class="docuLeft">&nbsp;</div>
+        <div class="docuCenter">ComponentDoc - Komponenten Documentation</div>
+        <div class="docuRight"></div>
+    </div>
+    <div class="docuPrintFooter">
+        <div class="docuLeft">Stand: Oktober 2016</div>
+        <div class="docuCenter">Dokumentation zu den Komponenten
+        </div>
+        <div class="docuRight"></div>
+    </div>
+    <div id="head" class="head docuImpressum">
+        <div id="head1" class="head1"></div>
+    </div>
+    <div class="spec">
+        <ol>
+            {{#each components}}
+                <li class="docuNavListEntry" data-id="{{id}}" title="{{package}}"><a href="#{{id}}"
+                                                                                     data-id="{{id}}"><strong>{{shortPackageName}}</strong></a>
+                </li>
+            {{/each}}
+        </ol>
+        {{#each components}}
+            <div class="docuComponentContainer" data-id="{{id}}">
+                <h1 id={{id}} title="{{package}}">{{package}}</h1>
+                <p>{{desc}}</p>
+                {{#if interface}}
+                    {{#if interface.api}}
+                        <h2>API</h2>
+                        {{> tocTableAPIPartial }}
+                    {{/if}}
+                    {{#if interface.events}}
+                        <h2>EVENTS</h2>
+                        {{> tocTableEventsPartial }}
+                    {{/if}}
+                    {{#if interface.model}}
+                        <h2>MODEL</h2>
+                        {{> tocTableModelPartial }}
+                    {{/if}}
+                    {{#if interface.ui}}
+                        <h2>UI</h2>
+                        {{> tocTableUIPartial }}
+                    {{/if}}
+                    <h3>Details</h3>
+                    <div class="docuDetails">
+                        {{#if interface.api}}
+                            {{> detailsEntryPartial parameter=interface.api.call}}
+                            {{> detailsEntryPartial parameter=interface.api.register}}
+                        {{/if}}
+                        {{#if interface.events}}
+                            {{#if interface.events.publish}}
+                                {{> detailsEntryPartial parameter=interface.events.publish.toParent}}
+                                {{> detailsEntryPartial parameter=interface.events.publish.toChildren}}
+                            {{/if}}
+                            {{#if interface.events.subscribe}}
+                                {{> detailsEntryPartial parameter=interface.events.subscribe.forParent}}
+                                {{> detailsEntryPartial parameter=interface.events.subscribe.forChildren}}
+                            {{/if}}
+                        {{/if}}
+                        {{#if interface.model}}
+                            {{#if interface.model.define}}
+                                {{#if interface.model.define.global}}
+                                    {{> detailsEntryPartial parameter=interface.model.define.global.data}}
+                                    {{> detailsEntryPartial parameter=interface.model.define.global.param}}
+                                    {{> detailsEntryPartial parameter=interface.model.define.global.state}}
+                                    {{> detailsEntryPartial parameter=interface.model.define.global.event}}
+                                    {{> detailsEntryPartial parameter=interface.model.define.global.command}}
+                                {{/if}}
+                                {{#if interface.model.define.own}}
+                                    {{> detailsEntryPartial parameter=interface.model.define.own.data}}
+                                    {{> detailsEntryPartial parameter=interface.model.define.own.param}}
+                                    {{> detailsEntryPartial parameter=interface.model.define.own.state}}
+                                    {{> detailsEntryPartial parameter=interface.model.define.own.event}}
+                                    {{> detailsEntryPartial parameter=interface.model.define.own.command}}
+                                {{/if}}
+                            {{/if}}
+                            {{#if interface.model.observe}}
+                                {{#if interface.model.observe.global}}
+                                    {{> detailsEntryPartial parameter=interface.model.observe.global.data}}
+                                    {{> detailsEntryPartial parameter=interface.model.observe.global.param}}
+                                    {{> detailsEntryPartial parameter=interface.model.observe.global.state}}
+                                    {{> detailsEntryPartial parameter=interface.model.observe.global.event}}
+                                    {{> detailsEntryPartial parameter=interface.model.observe.global.command}}
+                                {{/if}}
+                                {{#if interface.model.observe.own}}
+                                    {{> detailsEntryPartial parameter=interface.model.observe.own.data}}
+                                    {{> detailsEntryPartial parameter=interface.model.observe.own.param}}
+                                    {{> detailsEntryPartial parameter=interface.model.observe.own.state}}
+                                    {{> detailsEntryPartial parameter=interface.model.observe.own.event}}
+                                    {{> detailsEntryPartial parameter=interface.model.observe.own.command}}
+                                {{/if}}
+                            {{/if}}
+                        {{/if}}
+                        {{#if interface.ui}}
+                            {{> detailsEntryPartial parameter=interface.ui.socket}}
+                            {{> detailsEntryPartial parameter=interface.ui.plug}}
+                        {{/if}}
+                    </div>
+                {{/if}}
+            </div>
+        {{/each}}
+    </div>
+    <div class="docuFooter">
+        <div class="docuFooterLogo">
+        </div>
+    </div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script type="text/javascript">
+    var scrollContainer = $(".spec");
+    var viewport = scrollContainer.get(0).getBoundingClientRect();
+    var selectedItemId;
+    var updateHash = false;
+    var setSelectedItem = function (id) {
+        if (id !== selectedItemId) {
+            if (id.indexOf(".") === -1) {
+                var selectedElement = $(".docuNavListEntry[data-id='" + id + "']");
+                if (selectedElement.get(0)) {
+                    $(".docuNavListEntry").removeClass("docuSelected");
+                    selectedElement.addClass("docuSelected");
+                    selectedItemId = id;
+                    if (updateHash && window && window.location) {
+                        window.location.hash = "#" + id;
+                        updateHash = false
+                    }
+                }
+            }
+        }
+    };
+    scrollContainer.scroll(function (e) {
+        var componentContainers = $(".docuComponentContainer");
+        var visibleContainerId;
+        for (var i = 0; i < componentContainers.length; i++) {
+            var container = componentContainers[i];
+            var rect = container.getBoundingClientRect();
+            if (viewport.bottom >= rect.top && viewport.top <= rect.bottom) {
+                visibleContainerId = $(container).attr("data-id");
+                break;
+            }
+        }
+        if (visibleContainerId) {
+            updateHash = true;
+            setSelectedItem(visibleContainerId)
+        }
+    });
+    $(".docuNavListEntry > a").click(function (ev) {
+        setSelectedItem($(ev.currentTarget).data("id"));
+    });
+
+    window.addEventListener('hashchange', function (e) {
+        var url = e && e.newURL ? e.newURL : e.currentTarget.location.hash;
+        var urlParts = url.split("#");
+        var id = urlParts[1];
+        if (id) {
+            setSelectedItem(id)
+        }
+    }, false);
+</script>
+</body>
+</html>

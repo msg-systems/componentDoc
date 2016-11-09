@@ -1,0 +1,11 @@
+<div class="docuContent">
+    <div class="docuContentHeader">Events Definitions</div>
+    {{#if interface.events.publish}}
+        {{> tocEntryPartial parameter=interface.events.publish.toParent}}
+        {{> tocEntryPartial parameter=interface.events.publish.toChildren}}
+    {{/if}}
+    {{#if interface.events.subscribe}}
+        {{> tocEntryPartial parameter=interface.events.subscribe.forParent}}
+        {{> tocEntryPartial parameter=interface.events.subscribe.forChildren}}
+    {{/if}}
+</div>

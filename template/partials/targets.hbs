@@ -1,0 +1,14 @@
+{{#if targets}}
+    <div class="docuTargets">
+        <div class="docuTargetsRow docuTargetsHeader">
+            <div class="docuTargetsCol docuTargetsComp">Target-Component</div>
+            <div class="docuTargetsCol docuTargetsName">Name</div>
+        </div>
+        {{#each targets as |target|}}
+            <div class="docuTargetsRow docuTargetsEntry">
+                <div class="docuTargetsCol docuTargetsComp"><a href="#{{target.target}}"><i class="fa fa-external-link-square docuIcon"></i>{{name}}</a></div>
+                <div class="docuTargetsCol docuTargetsName">{{target.targetName}}</div>
+            </div>
+        {{/each}}
+    </div>
+{{/if}}

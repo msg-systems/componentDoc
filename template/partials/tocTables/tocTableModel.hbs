@@ -1,0 +1,35 @@
+<div class="docuContent">
+    <div class="docuContentHeader">Model Definitions</div>
+    {{#if interface.model.define}}
+        {{#if interface.model.define.global}}
+            {{> tocEntryPartial parameter=interface.model.define.global.data}}
+            {{> tocEntryPartial parameter=interface.model.define.global.param}}
+            {{> tocEntryPartial parameter=interface.model.define.global.state}}
+            {{> tocEntryPartial parameter=interface.model.define.global.event}}
+            {{> tocEntryPartial parameter=interface.model.define.global.command}}
+        {{/if}}
+        {{#if interface.model.define.own}}
+            {{> tocEntryPartial parameter=interface.model.define.own.data}}
+            {{> tocEntryPartial parameter=interface.model.define.own.param}}
+            {{> tocEntryPartial parameter=interface.model.define.own.state}}
+            {{> tocEntryPartial parameter=interface.model.define.own.event}}
+            {{> tocEntryPartial parameter=interface.model.define.own.command}}
+        {{/if}}
+    {{/if}}
+    {{#if interface.model.observe}}
+        {{#if interface.model.observe.global}}
+            {{> tocEntryPartial parameter=interface.model.observe.global.data}}
+            {{> tocEntryPartial parameter=interface.model.observe.global.param}}
+            {{> tocEntryPartial parameter=interface.model.observe.global.state}}
+            {{> tocEntryPartial parameter=interface.model.observe.global.event}}
+            {{> tocEntryPartial parameter=interface.model.observe.global.command}}
+        {{/if}}
+        {{#if interface.model.observe.own}}
+            {{> tocEntryPartial parameter=interface.model.observe.own.data}}
+            {{> tocEntryPartial parameter=interface.model.observe.own.param}}
+            {{> tocEntryPartial parameter=interface.model.observe.own.state}}
+            {{> tocEntryPartial parameter=interface.model.observe.own.event}}
+            {{> tocEntryPartial parameter=interface.model.observe.own.command}}
+        {{/if}}
+    {{/if}}
+</div>

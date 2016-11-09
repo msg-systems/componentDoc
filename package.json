@@ -1,0 +1,41 @@
+{
+  "name":         "componentDoc",
+  "homepage":     "https://github.com/msg-systems/componentDoc",
+  "description":  "JavaScript lightweight documentation generator",
+  "version":      "0.9.0",
+  "license":      "MIT",
+  "author": {
+    "name":       "Linda Zeman",
+    "email":      "turke.linda@googlemail.com",
+    "url":        "https://github.com/msg-systems"
+  },
+  "keywords": [
+    "yaml",
+    "html",
+    "pdf",
+    "documentation",
+    "generator",
+    "javascript",
+    "component"
+  ],
+  "repository": {
+    "type": "git",
+    "url":  "https://github.com/msg-systems/componentDoc.git"
+  },
+  "bugs": {
+    "url":  "https://github.com/msg-systems/componentDoc/issues"
+  },
+  "main": "./lib/componentDoc.js",
+  "dependencies": {
+    "colors":               "1.1.2",
+    "lodash":               "4.16.6",
+    "buildify":             "0.4.0",
+    "fs-extra":             "1.0.0",
+    "js-yaml":              "3.6.1",
+    "handlebars":           "4.0.5",
+    "prince":               "1.2.1"
+  },
+  "engines": {
+    "node":                 ">=0.10.0"
+  }
+}
