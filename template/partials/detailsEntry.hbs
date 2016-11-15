@@ -1,23 +1,27 @@
 {{#if parameter}}
     {{#each parameter as |item|}}
-        <h4 id="{{id}}">{{displayName}}</h4>
-        <div class="docuDetail">
-            <div class="docuDetailEntry">
-                <div class="docuDetailLabel">Name: </div>
-                <div class="docuDetailContent">{{item.name}}</div>
-            </div>
-            <div class="docuDetailEntry">
-                <div class="docuDetailLabel">Parameter: </div>
-                <div class="docuDetailContent">{{item.param}}</div>
-            </div>
-            {{#if item.part}}
+        <div class="docuDetailContainer">
+            <h4 id="{{id}}">{{displayName}}</h4>
+            <div class="docuDetail">
                 <div class="docuDetailEntry">
-                    <div class="docuDetailLabel">Part: </div>
-                    <div class="docuDetailContent">{{item.part}}</div>
+                    <div class="docuDetailLabel">Name: </div>
+                    <div class="docuDetailContent">{{item.name}}</div>
                 </div>
-            {{/if}}
+                {{#if item.param}}
+                <div class="docuDetailEntry">
+                    <div class="docuDetailLabel">Parameter: </div>
+                    <div class="docuDetailContent">{{item.param}}</div>
+                </div>
+                {{/if}}
+                {{#if item.part}}
+                    <div class="docuDetailEntry">
+                        <div class="docuDetailLabel">Part: </div>
+                        <div class="docuDetailContent">{{item.part}}</div>
+                    </div>
+                {{/if}}
+            </div>
+            <p>{{item.desc}}</p>
         </div>
-        <p>{{item.desc}}</p>
         {{> targetsPartial }}
     {{/each}}
 {{/if}}

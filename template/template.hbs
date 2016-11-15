@@ -53,11 +53,6 @@
             z-index: 100;
         }
 
-        /*.docuFooter .docuFooterLogo {
-            height: 42px;
-            background: url(/assets/bgetem_footer.jpg) no-repeat 60% 0;
-        }*/
-
         ul, ol {
             margin-top: 0;
             margin-bottom: 5px;
@@ -137,6 +132,15 @@
             width: 60%;
         }
 
+        div.spec .docuDetailContainer {
+            border-top: 1px solid #14426f;
+            font-size: 0;
+        }
+
+        div.spec .docuDetailContainer:first-child {
+            border-top: none;
+        }
+
         .docuIcon {
             margin-right: 6px;
         }
@@ -203,15 +207,8 @@
 
         div.spec h4 {
             color: #14426f !important;
-            padding-top: 10px;
             padding-bottom: 0;
-            margin-bottom: 4px;
             font-size: 14px;
-            border-top: 1px solid #14426f;
-        }
-
-        div.spec h4:first-child {
-            border-top: none;
         }
 
         a, a:hover, a:visited {
@@ -254,7 +251,7 @@
                 overflow: hidden;
             }
 
-            div.frontpage, div.rearpage {
+            div.frontpage {
                 display: none;
             }
 
@@ -286,15 +283,15 @@
                 margin-top: -50px;
             }
 
+            div.spec .docuTocHeadline {
+                display: none;
+            }
+
             div.spec h1 {
                 margin: -20px 0 5px 0;
             }
 
             div.spec h2 {
-                margin: 0 0 -20px 0;
-            }
-
-            div.spec h4 {
                 margin: 0 0 -20px 0;
             }
 
@@ -393,15 +390,6 @@
                 padding-bottom: 0cm;
             }
 
-            @page rearpage {
-                margin-left: 0cm;
-                margin-right: 0cm;
-                margin-top: 0cm;
-                margin-bottom: 0cm;
-                padding-top: 0cm;
-                padding-bottom: 0cm;
-            }
-
             body {
                 margin: 0;
                 padding: 0;
@@ -414,27 +402,36 @@
                 display: block;
             }
 
+            .docuContent, .docuDetailContainer, .docuTargets {
+                page-break-inside: avoid;
+            }
+
             .docuDetail .docuDetailEntry .docuDetailLabel, .docuDetail .docuDetailEntry .docuDetailContent,
             .docuTargets .docuTargetsRow .docuTargetsComp, .docuTargets .docuTargetsRow .docuTargetsName {
                 float: left;
+            }
+
+            div.spec .docuTocHeadline {
+                font-size: 18px;
+                font-weight: bold;
             }
 
             .break {
                 page-break-before: always;
             }
 
-            div.frontpage, div.rearpage {
+            div.frontpage {
                 width: 21cm !important;
                 height: 29.7cm !important;
             }
 
             div.frontpage .frontline1 {
                 position: absolute;
-                color: white !important;
+                color: #14426f !important;
                 font-size: 32px;
                 font-weight: bold;
-                left: 1.5cm;
-                top: 22.5cm;
+                left: 1cm;
+                top: 16cm;
                 white-space: normal;
                 width: 18cm;
                 line-height: 36px;
@@ -442,53 +439,19 @@
 
             div.frontpage .frontline2 {
                 position: absolute;
-                color: white !important;
+                color: #14426f !important;
                 font-size: 40px;
                 font-weight: bold;
-                left: 1.5cm;
-                top: 24.5cm;
+                left: 1cm;
+                top: 18cm;
             }
 
             div.frontpage .frontline3 {
                 position: absolute;
-                color: white !important;
+                color: #14426f !important;
                 font-size: 20px;
-                left: 1.5cm;
-                top: 26.5cm;
-            }
-
-            div.rearpage .rearline1 {
-                position: absolute;
-                color: black !important;
-                font-size: 14px;
-                left: 1.5cm;
-                top: 2cm;
-                white-space: normal;
-                width: 18cm;
-                line-height: 20px;
-            }
-
-            div.rearpage .rearline2 {
-                position: absolute;
-                color: white !important;
-                font-size: 14px;
-                left: 1.5cm;
-                top: 4cm;
-                white-space: normal;
-                width: 18cm;
-                line-height: 20px;
-            }
-
-            div.frontpage {
-                background: url('./img/01_ET_Frontpage.png') no-repeat 0 0 !important;
-                background-size: contain !important;
-                page: frontpage;
-            }
-
-            div.rearpage {
-                background: url('./img/01_ET_Rearpage.png') no-repeat 0 0 !important;
-                background-size: contain !important;
-                page: rearpage;
+                left: 1cm;
+                top: 20cm;
             }
 
             h1 {
@@ -505,6 +468,10 @@
 
             div.head {
                 display: none;
+            }
+
+            div.spec div.docuComponentContainer {
+                page-break-before: always;
             }
 
             div > ol a[href]::after {
@@ -526,6 +493,10 @@
                 list-style-type: none;
             }
 
+            div.spec .docuHeading {
+                page-break-after: avoid;
+            }
+
             div.spec h1 {
                 margin: 0 0 -10px 0;
             }
@@ -535,10 +506,6 @@
             }
 
             div.spec h3 {
-                margin: 0 0 -10px 0;
-            }
-
-            div.spec h4 {
                 margin: 0 0 -10px 0;
             }
 
@@ -618,6 +585,10 @@
     </style>
 </head>
 <body>
+<div class="frontpage docuImpressum">
+    <div class="frontline1">Komponenten Documentation</div>
+    <div class="frontline2">{{caption}}</div>
+</div>
 <div class="page">
     <!-- Footer must be on top of the page since it is taken out of flow from princeXML and then inserted into every page footer -->
     <div class="docuPrintHeader">
@@ -626,15 +597,14 @@
         <div class="docuRight"></div>
     </div>
     <div class="docuPrintFooter">
-        <div class="docuLeft">Stand: Oktober 2016</div>
-        <div class="docuCenter">Dokumentation zu den Komponenten
-        </div>
+        <div class="docuLeft">Dokumentation zu den Komponenten</div>
         <div class="docuRight"></div>
     </div>
     <div id="head" class="head docuImpressum">
         <div id="head1" class="head1"></div>
     </div>
     <div class="spec">
+        <div class="docuTocHeadline">Inhaltsverzeichnis</div>
         <ol>
             {{#each components}}
                 <li class="docuNavListEntry" data-id="{{id}}" title="{{package}}"><a href="#{{id}}"
@@ -644,26 +614,26 @@
         </ol>
         {{#each components}}
             <div class="docuComponentContainer" data-id="{{id}}">
-                <h1 id={{id}} title="{{package}}">{{package}}</h1>
+                <h1 class="docuHeading" id={{id}} title="{{package}}">{{package}}</h1>
                 <p>{{desc}}</p>
                 {{#if interface}}
                     {{#if interface.api}}
-                        <h2>API</h2>
+                        <h2 class="docuHeading">API</h2>
                         {{> tocTableAPIPartial }}
                     {{/if}}
                     {{#if interface.events}}
-                        <h2>EVENTS</h2>
+                        <h2 class="docuHeading">EVENTS</h2>
                         {{> tocTableEventsPartial }}
                     {{/if}}
                     {{#if interface.model}}
-                        <h2>MODEL</h2>
+                        <h2 class="docuHeading">MODEL</h2>
                         {{> tocTableModelPartial }}
                     {{/if}}
                     {{#if interface.ui}}
-                        <h2>UI</h2>
+                        <h2 class="docuHeading">UI</h2>
                         {{> tocTableUIPartial }}
                     {{/if}}
-                    <h3>Details</h3>
+                    <h3 class="docuHeading">Details</h3>
                     <div class="docuDetails">
                         {{#if interface.api}}
                             {{> detailsEntryPartial parameter=interface.api.call}}
