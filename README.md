@@ -44,6 +44,7 @@ Use the Node Package Manager (NPM) to install this module locally (default) or g
 - `template`  string - path to the template, that should be used for the generation of the documatation
 			 [**default**: folder *'template'* and the partials under *'template/partials'*]
 - `buildPDF`  string - flag, if a PDF should be created as well
+- `caption` string - the caption, that is displayed on the frontpage of the PDF
 - `log`  function - function for log information 
 - `verbose`  function - function for verbose information
 - `error`  function - function for error information 
