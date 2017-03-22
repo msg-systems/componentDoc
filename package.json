@@ -2,7 +2,7 @@
   "name":         "componentDoc",
   "homepage":     "https://github.com/msg-systems/componentDoc",
   "description":  "JavaScript lightweight documentation generator",
-  "version":      "0.9.2",
+  "version":      "0.9.3",
   "license":      "MIT",
   "author": {
     "name":       "Linda Zeman",
